@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>es-carshop</title>
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+  </head>
+  <div id="app" v-if="ui">
+
+    <div class="move"></div>
+
+    <div class="header">
+      <div class="first">
+        car dealership
+      </div>
+      <div class="info">
+        Buy a dream car
+      </div>
+      <div class="buy" @click="BuyCar()">
+        <h1>
+          BUY CAR
+        </h1>
+        <h2>
+          {{ FormatPrice(table.price) }} <span style="color: #32C100;">$</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="drive">
+      <h1 @click="TestDrive()">
+        TEST-DRIVE
+      </h1>
+      <h2>
+        {{table.label}}
+      </h2>
+      <div class="price">
+        <h1>
+          {{ FormatPrice(table.price) }} <span style="color:#32C100;">$</span>
+        </h1>
+      </div>
+    </div>
+
+      <div class="car">
+        <div v-if="Class == i.category" class="border" @click="CarData(i)" :style="[BColor == i.model ? {'background-image': `url(./assets/images/border-select.svg)`, 'background-size': `contain`} : {'background-image': `url(./assets/images/border.svg)`, 'background-size': `contain`, 'background-position': `center center`}]"  v-for="i in vehicles">
+          <div class="icon" :style="{'background-image': `url(./assets/icon/${i.category}.png)`}"></div>
+          <div class="class">
+            {{i.category}}
+          </div>
+          <div class="price">
+            <h1>
+              {{ FormatPrice(i.price) }}
+              <span style="color: #32C100;">$</span>
+            </h1>
+          </div>
+          <div class="name">
+            {{i.label}}
+          </div>
+      </div>
+    </div>
+
+    <div class="color">
+      <div class="active" v-for="i in color" :class="{ Colors : SColor.R == i.R && SColor.G == i.G && SColor.B == i.B }">
+        <div :style="{ 'backgroundColor': 'rgb('+i.R+', '+i.G+', '+i.B+')'  }"  class="carcolor"></div>
+      </div>
+   </div>
+
+   <div class="shadow"></div>
+
+
+
+    <div class="position">
+      <div class="left" @click="Position('left')"></div>
+      <div class="right"@click="Position('right')"></div>
+    </div>
+
+    <div class="bar">
+      <div class="speed">
+        <div class="name">
+          SPEED
+        </div>
+        <svg viewBox="0 0 279 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect/>
+          <rect x="41"/>
+
+          <rect x="82"  fill="#474747"/> 
+          <rect x="122" fill="#474747"/> 
+          <rect x="163" fill="#474747"/> 
+          <rect x="204" fill="#474747"/> 
+          <rect x="245" fill="#474747"/> 
+          <rect fill="#E1E1E1"/> 
+          <rect x="41"  fill="#E1E1E1"/> 
+
+          <rect x="82"  v-if="status.speed > 20" fill="#E1E1E1"/> 
+          <rect x="122" v-if="status.speed > 30" fill="#E1E1E1"/>
+          <rect x="163" v-if="status.speed > 40" fill="#E1E1E1"/> 
+          <rect x="204" v-if="status.speed > 50" fill="#E1E1E1"/>
+          <rect x="245" v-if="status.speed > 60" fill="#E1E1E1"/>
+          
+          </svg>
+      </div>
+
+      <div class="break">
+        <div class="name">
+          BREAK
+        </div>
+        <svg viewBox="0 0 279 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect/>
+          <rect x="41"/>
+          <rect x="82"  fill="#474747"/>
+          <rect x="122" fill="#474747"/>
+          <rect x="163" fill="#474747"/>
+          <rect x="204" fill="#474747"/>
+          <rect x="245" fill="#474747"/>
+          <rect fill="#E1E1E1"/>
+          <rect x="41"  fill="#E1E1E1"/>
+          <rect x="82"  fill="#E1E1E1"/>
+          <rect x="82"  v-if="status.break > 5" fill="#E1E1E1"/> 
+          <rect x="122" v-if="status.break > 8" fill="#E1E1E1"/>
+          <rect x="163" v-if="status.break > 12" fill="#E1E1E1"/> 
+          <rect x="204" v-if="status.break > 16" fill="#E1E1E1"/>
+          <rect x="245" v-if="status.break > 18" fill="#E1E1E1"/>
+          </svg>
+      </div>
+
+      <div class="acceleration">
+        <div class="name">
+          ACCELERATİON
+        </div>
+        <svg viewBox="0 0 279 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect/>
+          <rect x="41"/>
+          <rect x="82"  fill="#474747"/>
+          <rect x="122" fill="#474747"/>
+          <rect x="163" fill="#474747"/>
+          <rect x="204" fill="#474747"/>
+          <rect x="245" fill="#474747"/>
+          <rect fill="#E1E1E1"/>
+          <rect x="41"  fill="#E1E1E1"/>
+          <rect x="82"  fill="#E1E1E1"/>
+          <rect x="122" v-if="status.acceleration > 1" fill="#E1E1E1"/>
+          <rect x="163" v-if="status.acceleration > 2" fill="#E1E1E1"/> 
+          <rect x="204" v-if="status.acceleration > 3" fill="#E1E1E1"/>
+          <rect x="245" v-if="status.acceleration > 4" fill="#E1E1E1"/>
+
+          </svg>
+      </div>
+
+      <div class="control">
+        <div class="name">
+          CONTROL
+        </div>
+        <svg viewBox="0 0 279 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect/>
+          <rect x="41"/>
+          <rect x="82"  fill="#474747"/>
+          <rect x="122" fill="#474747"/>
+          <rect x="163" fill="#474747"/>
+          <rect x="204" fill="#474747"/>
+          <rect x="245" fill="#474747"/>
+          <rect fill="#E1E1E1"/>
+          <rect x="41"  fill="#E1E1E1"/>
+          <rect x="82"  v-if="status.control > 21" fill="#E1E1E1"/>
+          <rect x="122" v-if="status.control > 22" fill="#E1E1E1"/>
+          <rect x="163" v-if="status.control > 24" fill="#E1E1E1"/> 
+          <rect x="204" v-if="status.control > 25" fill="#E1E1E1"/>
+          <rect x="245" v-if="status.control > 27" fill="#E1E1E1"/>
+          </svg>
+        </div>
+        
+      </div>
+
+      <div class="line">
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+
+
+      <div class="category">
+        <div @click="Category(i)" class="border" v-for="i in category" :style="[Class == i.name ? {'height':'4.7rem', 'left':'-1rem', 'width':'13.5rem', 'background-image': `url(./assets/images/mask-select.svg)`,'background-size': `100%`, 'background-position': `center center`, 'filter':`brightness(100%)`} : {'background-image': `url(./assets/images/mask.svg)`, 'background-size': `100%`, 'background-position': `center center`}]">
+          <div class="icon" :style="[Class == i.name ? {'background-image': `url(./assets/icon/${i.name}.png)`, 'left':'2.27rem', 'top':'1rem', 'height':'2.288rem', 'background-size':`100%`}: {'background-size': `100%`, 'height':'2.288rem', 'top':'0.9rem', 'height':'2.288rem', 'background-image': `url(./assets/icon/${i.name}.png)`} ]">
+          </div>
+          <div class="name" :style="[Class == i.name ? {'left':'7rem', 'top':'1.4rem', 'filter':`brightness(300%)`}: {'width': `3.438rem`, 'opacity':`0.9`, 'height':'1.118rem'} ]">
+            {{i.name}}
+        </div>
+      </div>
+      </div>
+
+      <div class="features">
+        <div class="fuel">
+          <h1>
+            FUEL FLOW
+          </h1>
+          <h2>
+            {{table.fuel}}
+          </h2>
+        </div>
+        <div class="tank">
+          <h1>
+            tank capacity
+          </h1>
+          <h2>
+            {{table.capacity}}
+          </h2>
+        </div>
+        <div class="trunk">
+          <h1>
+            trunk capacity
+          </h1>
+          <h2>
+            {{table.trunk}}
+          </h2>
+        </div>
+      </div>
+    
+    
+    
+
+  </div>
+  <script src="./assets/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="./vue.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  </body>
+</html>

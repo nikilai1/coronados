@@ -1,0 +1,893 @@
+@font-face {
+  font-family: 'Akrobat';
+  src: url('../font/Akrobat-Light.otf');
+}
+
+@font-face {
+  font-family: 'Akrobat ExtraBold';
+  src: url('../font/Akrobat-Regular.otf');
+}
+
+@font-face {
+  font-family: 'Akrobat Black';
+  src: url('../font/akrobat-extrabold-webfont.ttf');
+
+}
+
+@mixin background($url, $size, $repeat, $position) {
+  position: absolute;
+  background-image: url($url);
+  background-size: $size;
+  background-repeat: $repeat;
+  background-position: $position;
+}
+
+body {
+  user-select: none;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  // @include background('../images/background.svg', cover, no-repeat, center center);
+}
+.move {
+  position: absolute;
+  height: 40%;
+  width: 50%;
+  margin: auto auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 5%;
+//  background-color: #ff151523;
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+  visibility: hidden;
+  opacity: 0
+}
+
+
+.shadow{
+  position: fixed;
+  width: 210.0%;
+  height: 30.09%;
+  left: -10%;
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  transform: matrix(0, -1, -1, 0, 0, 0);
+}
+
+
+.shadow::-webkit-scrollbar
+{
+	width: 12px;
+  height:5px;
+}
+
+
+.car::-webkit-scrollbar
+{
+	width: 12px;
+  height:5px;
+}
+
+.car::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color:  #5CD8FF;
+	background-image: -webkit-linear-gradient(90deg,
+	transparent,
+	rgba(0, 0, 0, 0.4) 50%,
+	transparent,
+	transparent)
+}
+
+.color::-webkit-scrollbar {
+  display: none;
+  visibility: hidden;
+  opacity: 0
+}
+
+.category::-webkit-scrollbar {
+  display: none;
+  visibility: hidden;
+  opacity: 0
+}
+
+
+.car {
+  position: absolute;
+  overflow: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 97%;
+  height: 10.5rem;
+  left: 2.8rem;
+  top: 55rem;
+  z-index: 1;
+  .border {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    left: -1rem;
+    width: 20.375rem;
+    height: 9.063rem;
+    -webkit-animation-name: fadeInLeftBig;
+    animation-name: fadeInLeftBig;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    .class {
+      position: relative;
+      width: 4.563rem;
+      height: 1.188rem;
+      top: 5.5rem;
+      left: 13.7rem;
+      text-align: center;      
+      font-family: 'Akrobat';
+      font-style: normal;
+      font-weight: 900;
+      font-size: 1rem;
+      line-height: 1.188rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      &:hover {
+        transform: scale(.95);
+      }
+    }
+    align-items: center;
+    justify-content: center;
+    .icon {
+      position: absolute;
+      width: 4.25rem;
+      height: 4.25rem;
+      left: 13.68rem;
+      top: 2rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 75%;
+      &:hover {
+        transform: scale(.95);
+      }
+    }
+    .price {
+      position: absolute;
+      width: 2.313rem;
+      height: 13.875rem;
+      right:10rem;
+      top: -1rem;
+      background: linear-gradient(5.99deg, #323232 4.83%, rgba(45, 45, 45, 0) 78.04%);
+      transform: matrix(0, -1, -1, 0, 0, 0);
+      text-shadow: 0px 0px 112.591px rgba(255, 255, 255, 0.25);
+      > h1 {
+        position: absolute;
+        width: 8.188rem;
+        height: 1.813rem;
+        top: 7.1rem;
+        right: -3rem;
+        transform: matrix(0, -1, -1, 0, 0, 0);
+        font-family: 'Akrobat';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 1.5rem;
+        line-height: 1.813rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #FFFFFF;
+      }
+    }
+    .name {
+      position: absolute;
+      width: 10.5rem;
+      height: 2.375rem;
+      right: 8rem;
+      text-align: left;
+      top: 2rem;
+      font-family: 'Akrobat Black', sans-serif;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 2rem;
+      line-height: 2.375rem;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      overflow: hidden;
+      text-shadow: 0px 0px 112.591px rgba(255, 255, 255, 0.25);
+      &:hover {
+        transform: scale(.95);
+      }
+    }
+  }
+}
+
+.color {
+  position: absolute;
+  overflow: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 20.6%;
+  height: 2.5rem;
+  left: 46.7%;
+  top: 50.45rem;
+  .active {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+    margin-left: 1.2rem;
+    width: 2.313rem;
+    border-radius: 1.25rem;
+    height: 2.313rem;
+    background: rgba(31, 31, 31, 0.9);
+    &:hover {
+      transform: scale(.95);
+    }
+    .carcolor {
+      position: absolute;
+      width: 1.188rem;  
+      height: 1.188rem;
+      top: 0.56rem;
+      left: 0.57rem;
+      border-radius: 1.25rem;
+    }
+  }
+}
+
+
+.Colors{
+  filter: brightness(200%);
+}
+
+.BColors{
+  filter: brightness(200%);
+}
+
+
+
+  .position {
+    .left {
+      width: 0.875rem;
+      height: 1.375rem;
+      left:45.5%;
+      top: 51rem;
+      @include background('../images/left.svg', cover, no-repeat, center center);
+    }
+    .right {
+      width: 0.875rem;
+      height: 1.375rem;
+      left:68.5%;
+      top: 51rem;
+      @include background('../images/left.svg', cover, no-repeat, center center);
+      transform: rotate(-180deg);
+    }
+  }
+
+
+  .bar {
+    position: absolute;
+    left:15.375rem;
+    top: 16rem;
+    .speed {
+      width: 4.438rem;
+      height: 29.125rem;
+      background: linear-gradient(5.99deg, #323232 4.83%, rgba(45, 45, 45, 0) 78.04%);
+      border-radius: 0.313rem;
+      transform: matrix(0, -1, -1, 0, 0, 0);
+      > svg {
+        position: absolute;
+        width: 17.438rem;
+        height: 0.563rem;
+        top: 18rem;
+        right:-5.7rem;
+        transform: matrix(0, -1, -1, 0, 0, 0);
+        > rect {
+          width: 2.125rem;
+          height: 0.563rem;
+        }
+      }
+      .name {
+        position: absolute;
+        width: 3rem;
+        height: 2.125rem;
+        left: 1.2rem;
+        top: 24.5rem;
+        transform: matrix(0, -1, -1, 0, 0, 0);
+        font-family: 'Akrobat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+        text-transform: uppercase;
+        color: #FFFFFF;
+      }
+    }
+    .break {
+      position: absolute;
+      width: 4.438rem;
+      top: 6rem;
+      height: 29.125rem;
+      background: linear-gradient(5.99deg, #323232 4.83%, rgba(45, 45, 45, 0) 78.04%);
+      border-radius: 0.313rem;
+      transform: matrix(0, -1, -1, 0, 0, 0);
+      > svg {
+        position: absolute;
+        width: 17.438rem;
+        height: 0.563rem;
+        top: 18rem;
+        right:-5.7rem;
+        transform: matrix(0, -1, -1, 0, 0, 0);
+        > rect {
+          width: 2.125rem;
+          height: 0.563rem;
+        }
+      }
+    }
+    .name {
+      position: absolute;
+      width: 3rem;
+      height: 2.125rem;
+      left: 1.2rem;
+      top: 24.5rem;
+      transform: matrix(0, -1, -1, 0, 0, 0);
+      font-family: 'Akrobat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+    .acceleration {
+      position: absolute;
+      width: 4.438rem;
+      top: 12rem;
+      height: 29.125rem;
+      background: linear-gradient(5.99deg, #323232 4.83%, rgba(45, 45, 45, 0) 78.04%);
+      border-radius: 0.313rem;
+      transform: matrix(0, -1, -1, 0, 0, 0);
+      > svg {
+        position: absolute;
+        width: 17.438rem;
+        height: 0.563rem;
+        top: 18rem;
+        right:-5.7rem;
+        transform: matrix(0, -1, -1, 0, 0, 0);
+        > rect {
+          width: 2.125rem;
+          height: 0.563rem;
+        }
+      }
+    }
+    .control {
+      position: absolute;
+      width: 4.438rem;
+      top: 18rem;
+      height: 29.125rem;
+      background: linear-gradient(5.99deg, #323232 4.83%, rgba(45, 45, 45, 0) 78.04%);
+      border-radius: 0.313rem;
+      transform: matrix(0, -1, -1, 0, 0, 0);
+      > svg {
+        position: absolute;
+        width: 17.438rem;
+        height: 0.563rem;
+        top: 18rem;
+        right:-5.7rem;
+        transform: matrix(0, -1, -1, 0, 0, 0);
+        > rect {
+          width: 2.125rem;
+          height: 0.563rem;
+        }
+      }
+    }
+    .name {
+      position: absolute;
+      width: 3rem;
+      height: 2.125rem;
+      left: 1.2rem;
+      top: 24.5rem;
+      transform: matrix(0, -1, -1, 0, 0, 0);
+      font-family: 'Akrobat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+  }
+
+  .line {
+    .left {
+      position: absolute;
+      width: 35.625rem;
+      height: 0.091rem;
+      left: 9.375rem;
+      top: 31.25rem;
+      @include background('../images/line.svg', cover, no-repeat, center center);
+      transform: rotate(90deg);
+    }
+    .right {
+      position: fixed;
+      width: 35.625rem;
+      height: 0.091rem;
+      left: 70%;
+      top: 29.375rem;
+      @include background('../images/line.svg', cover, no-repeat, center center);
+      transform: rotate(90deg);
+    }
+  }
+
+  .fadeInLeftBig {
+    -webkit-animation-name: fadeInLeftBig;
+    animation-name: fadeInLeftBig;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeInLeftBig {
+    0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+    }
+    100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+    }
+    }
+    @keyframes fadeInLeftBig {
+    0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-2000px, 0, 0);
+    transform: translate3d(-2000px, 0, 0);
+    }
+    100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+    }
+    } 
+    
+  .category {
+    position: fixed;
+    width: 17rem;
+    height: 35.5rem;
+    top: 13.2rem;
+    left: 86%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1;
+    .border {
+      position: relative;
+      width: 11.3rem;
+      height: 3.813rem;
+      margin-bottom: 2.05rem;
+      left: 1.7rem;
+      filter: brightness(300%);
+      .icon {
+        width: 2.438rem;
+        height: 2.288rem;
+        top: 1.3rem;
+        left: 0.6rem;
+        opacity: 0.6;
+        @include background('../icon/luxury.png', cover, no-repeat, center center);
+      }
+      .name {
+        position: absolute;
+        width: 3.438rem;
+        height: 1.188rem;
+        top: 1.4rem;
+        left: 5rem;
+        text-align: center;
+        font-family: 'Akrobat';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 1rem;
+        line-height: 1.188rem;
+        text-transform: uppercase;
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .features {
+    .fuel {
+      width: 3.25rem;
+      height: 3.25rem;
+      left: 3.125rem;
+      top: 11.375rem;
+      @include background('../icon/fuel.svg', cover, no-repeat, center center);
+      z-index: 1;
+      > h1 {
+        position: absolute;
+        width: 5.313rem;
+        height: 1.125rem;
+        left: 4.2rem;
+        top: -0.3rem;
+        text-align: center;
+        font-family: 'Akrobat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 0.938rem;
+        line-height: 1.125rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #ADADAD;
+      }
+      > h2 {
+        position: absolute;
+        width: 5.438rem;
+        height: 1.813rem;
+        left: 4.25rem;
+        top: 0rem;
+        font-family: 'Akrobat ExtraBold', sans-serif;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 1.5rem;
+        line-height: 1.813rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #D5D5D5;
+      }
+    }
+    .tank {
+      width: 3.25rem;
+      height: 3.25rem;
+      left: 3.125rem;
+      top: 16.25rem;
+      @include background('../icon/tank.svg', cover, no-repeat, center center);
+      > h1 {
+        position: absolute;
+        width: 8.313rem;
+        height: 1.125rem;
+        left: 2.97rem;
+        top: -0.45rem;
+        text-align: center;
+        font-family: 'Akrobat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 0.938rem;
+        line-height: 1.125rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #ADADAD;
+      }
+      > h2 {
+        position: absolute;
+        width: 8.438rem;
+        height: 1.813rem;
+        left: 4.3rem;
+        top: -0.1rem;
+        font-family: 'Akrobat ExtraBold', sans-serif;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 1.5rem;
+        line-height: 1.813rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #D5D5D5;
+      }
+    }
+    .trunk {
+      width: 3.25rem;
+      height: 3.25rem;
+      left: 3.125rem;
+      top: 20.938rem;
+      @include background('../icon/trunk.svg', cover, no-repeat, center center);
+      > h1 {
+        position: absolute;
+        width: 8.313rem;
+        height: 1.125rem;
+        left: 3.25rem;
+        top: -0.4rem;
+        text-align: center;
+        font-family: 'Akrobat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 0.938rem;
+        line-height: 1.125rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #ADADAD;
+      }
+      > h2 {
+        position: absolute;
+        width: 5.438rem;
+        height: 1.813rem;
+        left: 4.35rem;
+        top: -0.04rem;
+        font-family: 'Akrobat ExtraBold', sans-serif;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 1.5rem;
+        line-height: 1.813rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #D5D5D5;
+      }
+    }
+  }
+  
+
+  .header {
+    .first {      
+      position: absolute;
+      top: 2rem;
+      left: 4.1rem;
+      font-family: 'Akrobat ExtraBold', sans-serif;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 2.5rem;
+      line-height: 3rem;
+      text-transform: uppercase;
+      background: linear-gradient(89.71deg, #12ABDB 0.25%, #21C663 99.8%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      text-shadow: 0px 0px 112.591px rgba(255, 255, 255, 0.25);
+      z-index: 1;
+    }
+      .info {
+        position: absolute;
+        width: 5.938rem;
+        height: 0.875rem;
+        left: 4.3rem; 
+        top: 4.8rem;
+        font-family: 'Akrobat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.75rem; 
+        line-height: 0.875rem;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        z-index: 1;
+      }
+      .buy {
+        box-sizing: border-box;
+        width: 3.688rem;
+        height: 3.688rem;
+        left: 70%;
+        top: 11.5rem;
+        @include background('../icon/basket.svg', cover, no-repeat, center center);
+        display:inline-flex;
+        justify-content: right;
+        z-index: 1;
+        > h1 {
+          position: absolute;
+          width: 3.438rem;
+          height: 1rem;
+          top: -2rem;
+          text-align: center;
+          font-family: 'Akrobat ExtraBold', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 0.813rem;
+          line-height: 1rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: #ADADAD;
+        }
+        > h2 {
+          position: absolute;
+          width: 7rem;
+          height: 1.5rem;
+          right: 4rem;
+          text-align: center;
+          font-family: 'Akrobat ExtraBold', sans-serif;
+          font-style: normal;
+          font-weight: 900;
+          font-size: 1.25rem;
+          line-height: 1.5rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: #FFFFFF;
+
+        }
+      }
+  }
+
+
+  .drive {
+    position: absolute;
+      width: 12.563rem;
+      height: 3.25rem;
+      left: 29.688rem;
+      top: 18rem;
+      background: linear-gradient(89.71deg, #12ABDB 0.25%, #21C663 99.8%);
+      border-radius: 0.625rem;
+      display: flex;
+      align-items: center;
+      z-index: 1;
+      > h1 {
+        position: absolute;
+        width: 12.5rem;
+        height: 1.813rem;
+        text-align: center;
+        font-family: 'Akrobat ExtraBold', sans-serif;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 1.5rem;
+        line-height: 1.813rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        align-items: center;
+        &:hover {
+          transform: scale(.95);
+        }
+      }
+      > h2 {
+        position: absolute;
+        width: 18.438rem;
+        left: 0.2rem;
+        height: 4.813rem;
+        top: -8.5rem;
+        font-family: 'Akrobat';
+        text-align: left;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 4rem;
+        line-height: 4.813rem;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        align-items: center;
+        overflow: hidden;
+        &:hover {
+          transform: scale(.95);
+        }
+      }
+      .price {
+        position: absolute;
+        width: 2.063rem;
+        height: 12.375rem;
+        left: 5.5rem;
+        top: -12rem;
+        background: linear-gradient(5.99deg, #323232 4.83%, rgba(45, 45, 45, 0) 78.04%);
+        transform: matrix(0, -1, -1, 0, 0, 0);
+        align-items: center;
+        > h1 {
+          position: absolute;
+          width: 11.25rem;
+          height: 1.5rem;
+          top: 4.1rem;
+          right: -4.9rem;
+          text-align: left;
+          transform: matrix(0, -1, -1, 0, 0, 0);
+          font-family: 'Akrobat';
+          font-style: normal;
+          font-weight: 800;
+          font-size: 1.5rem;
+          line-height: 1.813rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: #FFFFFF;
+        }
+      }
+  }
+
+  html {
+    font-size: 16.0px;
+  }
+  
+  @media screen and (width: 4096px) and (height: 2160px) {
+    html {
+      font-size: 31px;
+    }
+  }
+  
+  @media screen and (width: 2560px) and (height: 1440px) {
+    html {
+      font-size: 20px;
+    }
+  }
+
+  @media screen and (width: 3440px) and (height: 1440px) {
+    html {
+      font-size: 22px;
+    }
+    .line {
+      .right {
+        left: 73%;
+      }
+    }
+  }
+  
+  @media screen and (width: 1920px) and (height: 1200px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  @media screen and (width: 1920px) and (height: 1200px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  @media screen and (width: 1920px) and (height: 1440px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  @media screen and (width: 1600px) and (height: 1024px) {
+    html {
+      font-size: 14px;
+    }
+  }
+  
+  @media screen and (width: 1440px) and (height: 900px) {
+    html {
+      font-size: 12px;
+    }
+  }
+  
+  @media screen and (width: 1680px) and (height: 1050px) {
+    html {
+      font-size: 14.0px;
+    }
+  }
+  
+  @media screen and (width: 1600px) and (height: 900px) {
+    html {
+      font-size: 13.3px;
+    }
+  }
+  
+  @media screen and (width: 1600px) and (height: 1024px) {
+    html {
+      font-size: 13.3px;
+    }
+  }
+  
+  @media screen and (width: 1768px) and (height: 992px) {
+    html {
+      font-size: 15px;
+    }
+  }
+  @media screen and (width: 1366px) and (height: 768px) {
+    html {
+      font-size: 11.3px;
+    }
+  }
+  @media screen and (width: 1400px) and (height: 1050px) {
+    html {
+      font-size: 11.7px;
+    }
+  }
+  @media screen and (width: 1280px) and (height: 1024px) {
+    html {
+      font-size: 11.7px;
+    }
+  }
+  @media screen and (width: 1280px) and (height: 720px) {
+    html {
+      font-size: 11px;
+    }
+  }
+  @media screen and (width: 1024px) and (height: 768px) {
+    html {
+      font-size: 10.05px;
+    }
+  }
+  @media screen and (width: 832px) and (height: 624px) {
+    html {
+      font-size: 8.05px;
+    }
+  }
+  
+  @media screen and (width: 800px) and (height: 600px) {
+    html {
+      font-size: 8px;
+    }
+  }

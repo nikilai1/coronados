@@ -1,0 +1,164 @@
+@font-face {
+  font-family: MusticaPro-SemiBold;
+  src: url(fonts/MusticaPro-SemiBold.otf);
+  font-weight: 500;
+}
+
+html, body{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.notifications-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  box-sizing: border-box;
+  padding-top: 1vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: max-content;
+  width: 100%;
+}
+
+.notification-container{
+  width: max-content;
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.notification-icon-container{
+  box-sizing: border-box;
+  padding: 0.3vw;
+  border-radius: 0.5vw;
+  background-color: #303030;
+  border: solid 0.2vw #181818c0;
+  /* margin-right: 1vw; */
+  border-right: 0;
+  border-left: 0;
+  width: 3vw;
+  height: 3vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0.1vw 0.1vw 0.3vw #18181840,
+  -0.1vw -0.1vw 0.3vw #ffffff40;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-message-container{
+  max-width: 0;
+  opacity: 0;
+  position: relative;
+  left: -0.2vw;
+  width: max-content;
+  box-sizing: border-box;
+  padding: 0.3vw 0;
+  border-radius: 0 0.4vw 0.4vw 0;
+  background-color: #181818c0;
+  border: solid 0.2vw #000000;
+  border-left: 0;
+  box-shadow: 0.2vw 0.1vw 0.3vw #18181840,
+  -0.1vw -0.1vw 0.3vw #ffffff40;
+  overflow-x: hidden;
+}
+
+.notification-message{
+  margin: 0;
+  font-family: "Pricedown";
+  font-variant-ligatures: none;
+  letter-spacing: 0.1vw;
+  font-size: 1vw;
+  line-height: 1vw;
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 0.1vw 0.1vw 0.3vw #181818,
+  -0.1vw -0.1vw 0.3vw #ffffff40;
+  display: inline-block;
+  width: max-content;
+  flex-basis: content;
+}
+
+.notification-icon{
+  margin: 0;
+  font-size: 1vw;
+  line-height: 1vw;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0.1vw 0.1vw 0.3vw #181818,
+  -0.1vw -0.1vw 0.3vw #ffffff40;
+}
+
+.notification-icon-image{
+  width: auto;
+  height: 150%;
+  margin-bottom: 15px;
+}
+
+.shrinkLeft{
+  animation-name: shrinkLeft;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slideDown{
+  animation-name: slideDown;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+}
+
+.growRight{
+  animation-name: growRight;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slideUp{
+  animation-name: slideUp;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+}
+
+@keyframes slideDown{
+  0% { top: -8vw; }
+  100% { top: 0; }
+}
+
+@keyframes shrinkLeft{
+  0% { opacity: 0; max-width: 0vw; padding: 0.3vw 0; }
+  20% { opacity: 0; max-width: 0vw; padding: 0.3vw 0;}
+  30% { opacity: 1; padding: 0.3vw 0.7vw;}
+  100% { opacity: 1; max-width: var(--fullWidth); padding: 0.3vw 0.7vw; }
+}
+
+@keyframes slideUp{
+  0% { top: 0; }
+  100% { top: -8vw; }
+}
+
+@keyframes growRight{
+  0% { opacity: 1; max-width: var(--fullWidth); padding: 0.3vw 0.7vw; }
+  70% { opacity: 1; padding: 0.3vw 0.7vw; }
+  80% { opacity: 0; max-width: 0vw; padding: 0.3vw 0; }
+  100% { opacity: 0; max-width: 0vw; padding: 0.3vw 0; }
+}
